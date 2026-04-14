@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>법무법인 정석 | 신뢰와 전문성</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0e1f3d;
+      --navy-mid: #1a3460;
+      --navy-light: #2a4f8f;
+      --gold: #b8973a;
+      --gold-light: #d4af6a;
+      --cream: #f7f4ee;
+      --cream-dark: #ede8df;
+      --text-dark: #1a1a1a;
+      --text-mid: #444;
+      --text-muted: #7a7a7a;
+      --white: #ffffff;
+      --section-gap: 100px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.7;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 60px;
+      height: 70px;
+      background: rgba(14, 31, 61, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(184, 151, 58, 0.25);
+    }
+
+    .nav-logo {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 1px;
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy) !important;
+      font-weight: 500 !important;
+      padding: 8px 20px;
+      border-radius: 2px;
+    }
+    .nav-cta:hover { background: var(--gold-light); color: var(--navy) !important; }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--navy);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 70% 40%, rgba(42,79,143,0.4) 0%, transparent 60%),
+        linear-gradient(160deg, #0e1f3d 0%, #061024 100%);
+    }
+
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 59px,
+          rgba(184,151,58,0.06) 59px,
+          rgba(184,151,58,0.06) 60px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 59px,
+          rgba(184,151,58,0.06) 59px,
+          rgba(184,151,58,0.06) 60px
+        );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 140px 80px 100px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(184,151,58,0.4);
+      padding: 6px 16px;
+      margin-bottom: 36px;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 28px;
+      letter-spacing: -0.5px;
+    }
+    .hero-title em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.65);
+      font-weight: 300;
+      max-width: 520px;
+      margin-bottom: 52px;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 16px 36px;
+      text-decoration: none;
+      border-radius: 2px;
+      letter-spacing: 0.5px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    .btn-outline {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.85);
+      font-size: 15px;
+      padding: 16px 36px;
+      text-decoration: none;
+      border-radius: 2px;
+      letter-spacing: 0.5px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-stats {
+      position: absolute;
+      bottom: 0; right: 0;
+      display: flex;
+      gap: 0;
+    }
+
+    .stat-block {
+      background: rgba(255,255,255,0.04);
+      border-left: 1px solid rgba(184,151,58,0.2);
+      border-top: 1px solid rgba(184,151,58,0.2);
+      padding: 32px 48px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 8px;
+      letter-spacing: 1px;
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: var(--section-gap) 80px; }
+
+    .section-tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .section-tag::before {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 500px;
+      line-height: 1.8;
+      margin-bottom: 56px;
+    }
+
+    /* ── PRACTICE AREAS ── */
+    #practice { background: var(--white); }
+
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--cream-dark);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .practice-card {
+      padding: 44px 40px;
+      border-right: 1px solid var(--cream-dark);
+      border-bottom: 1px solid var(--cream-dark);
+      background: var(--white);
+      transition: background 0.3s;
+      cursor: default;
+    }
+    .practice-card:hover { background: var(--cream); }
+    .practice-card:nth-child(3n) { border-right: none; }
+
+    .practice-icon {
+      width: 44px;
+      height: 44px;
+      margin-bottom: 24px;
+      color: var(--gold);
+    }
+
+    .practice-name {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .practice-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--navy);
+      color: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      padding: var(--section-gap) 80px;
+    }
+
+    #about .section-title { color: var(--white); }
+
+    .about-text {
+      font-size: 16px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.9;
+      margin-bottom: 32px;
+    }
+
+    .about-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .about-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.8);
+    }
+    .about-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+
+    .about-image-placeholder {
+      aspect-ratio: 4/5;
+      background: linear-gradient(135deg, var(--navy-mid), var(--navy-light));
+      border: 1px solid rgba(184,151,58,0.25);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .about-img-icon {
+      width: 80px;
+      height: 80px;
+      color: rgba(184,151,58,0.5);
+    }
+
+    .about-img-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 1px;
+      text-align: center;
+    }
+
+    /* ── ATTORNEYS ── */
+    #attorneys { background: var(--cream); }
+
+    .attorney-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .attorney-card {
+      background: var(--white);
+      border: 1px solid var(--cream-dark);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .attorney-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(14,31,61,0.12);
+    }
+
+    .attorney-photo {
+      background: linear-gradient(135deg, #1a3460 0%, #2a4f8f 100%);
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .attorney-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(184,151,58,0.2);
+      border: 2px solid rgba(184,151,58,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Noto Serif KR', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .attorney-info { padding: 28px 28px 32px; }
+
+    .attorney-name {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .attorney-title {
+      font-size: 13px;
+      color: var(--gold);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+    .attorney-bio {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* ── PROCESS ── */
+    #process { background: var(--white); }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    .process-step {
+      padding: 40px 32px;
+      border-left: 1px solid var(--cream-dark);
+      position: relative;
+    }
+    .process-step:first-child { border-left: none; }
+
+    .step-number {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--cream-dark);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .step-title {
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .step-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { background: var(--cream); }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      padding: 40px 40px;
+      border: 1px solid var(--cream-dark);
+      border-radius: 4px;
+    }
+
+    .testimonial-quote {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 32px;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-text {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.9;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid var(--cream-dark);
+      padding-top: 20px;
+    }
+
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--cream-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--navy);
+    }
+
+    .author-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--navy);
+    }
+    .author-case {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--navy);
+      color: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      padding: var(--section-gap) 80px;
+      align-items: start;
+    }
+
+    #contact .section-title { color: var(--white); }
+
+    .contact-info-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(184,151,58,0.12);
+      border: 1px solid rgba(184,151,58,0.25);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+
+    .contact-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .contact-value {
+      font-size: 15px;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .contact-form {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(184,151,58,0.15);
+      border-radius: 4px;
+      padding: 40px;
+    }
+
+    .form-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 22px;
+      color: var(--white);
+      margin-bottom: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--white);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 14px;
+      padding: 12px 16px;
+      border-radius: 2px;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: rgba(184,151,58,0.5); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-group select option { background: var(--navy); }
+
+    .form-submit {
+      width: 100%;
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 16px;
+      border-radius: 2px;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      margin-top: 8px;
+      transition: background 0.2s;
+    }
+    .form-submit:hover { background: var(--gold-light); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #06101f;
+      padding: 48px 80px 32px;
+      border-top: 1px solid rgba(184,151,58,0.15);
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 28px;
+    }
+
+    .footer-brand {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .footer-brand span { color: var(--gold); }
+
+    .footer-brand-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      margin-top: 8px;
+      max-width: 280px;
+      line-height: 1.7;
+    }
+
+    .footer-links-group {
+      display: flex;
+      gap: 60px;
+    }
+
+    .footer-col-title {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .footer-col-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col-links a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col-links a:hover { color: rgba(255,255,255,0.8); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .footer-disclaimer {
+      font-size: 12px;
+      color: rgba(255,255,255,0.2);
+      max-width: 500px;
+      text-align: right;
+      line-height: 1.6;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      section { padding: 64px 24px; }
+      .hero-content { padding: 120px 24px 80px; }
+      .hero-stats { position: static; display: flex; flex-wrap: wrap; border-top: 1px solid rgba(184,151,58,0.2); }
+      .stat-block { flex: 1; min-width: 120px; border-top: none; }
+      .practice-grid { grid-template-columns: 1fr; }
+      .practice-card { border-right: none; }
+      #about { grid-template-columns: 1fr; gap: 40px; padding: 64px 24px; }
+      .about-image-placeholder { display: none; }
+      .attorney-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      #contact { grid-template-columns: 1fr; gap: 48px; padding: 64px 24px; }
+      footer { padding: 40px 24px 24px; }
+      .footer-top { flex-direction: column; gap: 40px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .footer-disclaimer { text-align: center; }
+    }
+
+    /* ── FADE-IN ANIMATION ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">법무법인 <span>정석</span></a>
+  <ul class="nav-links">
+    <li><a href="#practice">업무분야</a></li>
+    <li><a href="#about">소개</a></li>
+    <li><a href="#attorneys">변호사</a></li>
+    <li><a href="#process">상담절차</a></li>
+    <li><a href="#contact" class="nav-cta">무료상담 신청</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-tag">법무법인 정석 | 서울 · 경기</div>
+    <h1 class="hero-title">
+      당신의 권리를,<br />
+      <em>정확하게 지킵니다.</em>
+    </h1>
+    <p class="hero-sub">
+      15년 이상의 전문 경력과 풍부한 소송 경험을 바탕으로<br />
+      민사·형사·기업법무·가사 전 분야를 다루는 법률 전문가 집단입니다.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">무료 법률상담 신청</a>
+      <a href="#practice" class="btn-outline">업무분야 보기</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-block">
+      <div class="stat-num">1,200+</div>
+      <div class="stat-label">수임 사건</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">94%</div>
+      <div class="stat-label">고객 만족도</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">15년</div>
+      <div class="stat-label">전문 경력</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICE AREAS -->
+<section id="practice">
+  <div class="section-tag">업무분야</div>
+  <h2 class="section-title">전문화된 법률 서비스</h2>
+  <p class="section-desc">민사에서 형사, 기업법무까지 다양한 분야의 경험과 노하우로 최선의 결과를 도출합니다.</p>
+
+  <div class="practice-grid">
+
+    <div class="practice-card fade-up">
+      <svg class="practice-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="6" y="8" width="32" height="28" rx="2"/>
+        <line x1="13" y1="16" x2="31" y2="16"/>
+        <line x1="13" y1="22" x2="31" y2="22"/>
+        <line x1="13" y1="28" x2="24" y2="28"/>
+      </svg>
+      <div class="practice-name">민사소송</div>
+      <p class="practice-text">계약분쟁, 손해배상, 채권추심 등 민사 관련 모든 분야를 체계적으로 처리합니다.</p>
+    </div>
+
+    <div class="practice-card fade-up">
+      <svg class="practice-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M22 6L6 16v4h32v-4L22 6z"/>
+        <rect x="10" y="20" width="4" height="14"/>
+        <rect x="20" y="20" width="4" height="14"/>
+        <rect x="30" y="20" width="4" height="14"/>
+        <line x1="6" y1="34" x2="38" y2="34"/>
+      </svg>
+      <div class="practice-name">형사변호</div>
+      <p class="practice-text">수사단계부터 재판까지 의뢰인의 권익을 최우선으로 방어합니다.</p>
+    </div>
+
+    <div class="practice-card fade-up">
+      <svg class="practice-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="22" cy="22" r="16"/>
+        <path d="M22 12v10l6 4"/>
+      </svg>
+      <div class="practice-name">가사 · 이혼</div>
+      <p class="practice-text">이혼, 양육권, 상속, 재산분할 등 가사 분야의 민감한 사안을 신중하게 처리합니다.</p>
+    </div>
+
+    <div class="practice-card fade-up">
+      <svg class="practice-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="8" y="14" width="28" height="20" rx="2"/>
+        <path d="M16 14v-4a2 2 0 012-2h8a2 2 0 012 2v4"/>
+        <line x1="22" y1="20" x2="22" y2="28"/>
+        <line x1="18" y1="24" x2="26" y2="24"/>
+      </svg>
+      <div class="practice-name">기업법무</div>
+      <p class="practice-text">기업 설립, 계약 자문, M&A, 노사관계 등 기업의 법률 리스크를 선제적으로 관리합니다.</p>
+    </div>
+
+    <div class="practice-card fade-up">
+      <svg class="practice-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M8 36l8-12 8 6 10-16"/>
+        <circle cx="36" cy="14" r="3"/>
+      </svg>
+      <div class="practice-name">부동산 · 건설</div>
+      <p class="practice-text">매매, 임대차, 건설분쟁, 재개발·재건축 관련 복잡한 법률 문제를 해결합니다.</p>
+    </div>
+
+    <div class="practice-card fade-up">
+      <svg class="practice-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M22 8l-14 8v12l14 8 14-8V16L22 8z"/>
+        <circle cx="22" cy="24" r="5"/>
+      </svg>
+      <div class="practice-name">행정 · 헌법</div>
+      <p class="practice-text">행정소송, 헌법소원, 국가배상 등 공법 분야의 전문적인 법률 서비스를 제공합니다.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div>
+    <div class="section-tag">법인 소개</div>
+    <h2 class="section-title">원칙과 신뢰로<br />함께하는 법률 파트너</h2>
+    <p class="about-text">
+      법무법인 정석은 2009년 설립 이후 오직 의뢰인의 이익만을 최우선으로 생각해왔습니다.
+      법률의 복잡함 뒤에 숨지 않고, 명확한 소통으로 의뢰인이 상황을 이해하고 최선의 결정을 내릴 수 있도록 돕습니다.
+    </p>
+    <ul class="about-list">
+      <li>사건 수임 전 충분한 사전 검토와 솔직한 전망 제시</li>
+      <li>담당 변호사가 처음부터 끝까지 직접 진행</li>
+      <li>진행 상황 정기 업데이트 및 신속한 연락 체계</li>
+      <li>합리적이고 투명한 수임료 체계</li>
+    </ul>
+    <a href="#contact" class="btn-primary" style="color:#0e1f3d;">상담 신청하기</a>
+  </div>
+  <div class="about-image-placeholder">
+    <svg class="about-img-icon" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1">
+      <rect x="10" y="20" width="60" height="42" rx="2"/>
+      <path d="M40 20V10M28 20V14M52 20V14"/>
+      <line x1="20" y1="34" x2="60" y2="34"/>
+      <line x1="20" y1="44" x2="60" y2="44"/>
+      <line x1="20" y1="54" x2="45" y2="54"/>
+    </svg>
+    <div class="about-img-label">법무법인 정석<br />서울특별시 서초구</div>
+  </div>
+</section>
+
+<!-- ATTORNEYS -->
+<section id="attorneys">
+  <div class="section-tag">변호사 소개</div>
+  <h2 class="section-title">전문 법률가 팀</h2>
+  <p class="section-desc">각 분야의 전문 변호사가 최선의 결과를 위해 함께합니다.</p>
+
+  <div class="attorney-grid">
+
+    <div class="attorney-card fade-up">
+      <div class="attorney-photo">
+        <div class="attorney-avatar">김</div>
+      </div>
+      <div class="attorney-info">
+        <div class="attorney-name">김정호 대표변호사</div>
+        <div class="attorney-title">민사 · 기업법무 전문</div>
+        <p class="attorney-bio">서울대학교 법학과 졸업, 사법연수원 35기. 대형 로펌 파트너 출신으로 기업법무 및 민사소송 분야 20년 경력. 전 서울중앙지방법원 조정위원.</p>
+      </div>
+    </div>
+
+    <div class="attorney-card fade-up">
+      <div class="attorney-photo">
+        <div class="attorney-avatar">이</div>
+      </div>
+      <div class="attorney-info">
+        <div class="attorney-name">이수진 변호사</div>
+        <div class="attorney-title">형사 · 가사 전문</div>
+        <p class="attorney-bio">연세대학교 법학전문대학원 졸업. 전 검사 출신 형사 전문 변호사. 가사소송 및 이혼, 상속 분야 풍부한 경험 보유.</p>
+      </div>
+    </div>
+
+    <div class="attorney-card fade-up">
+      <div class="attorney-photo">
+        <div class="attorney-avatar">박</div>
+      </div>
+      <div class="attorney-info">
+        <div class="attorney-name">박재원 변호사</div>
+        <div class="attorney-title">부동산 · 건설 전문</div>
+        <p class="attorney-bio">고려대학교 법과대학 졸업. 건설·부동산 분야 전문가로 재개발·재건축 관련 다수의 성공 사례 보유. LH 자문변호사 역임.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-tag">상담 절차</div>
+  <h2 class="section-title">쉽고 빠른 법률 상담</h2>
+  <p class="section-desc">복잡한 법률 절차를 단순하게. 4단계로 신속하게 진행됩니다.</p>
+
+  <div class="process-steps">
+    <div class="process-step fade-up">
+      <div class="step-number">01</div>
+      <div class="step-title">상담 신청</div>
+      <p class="step-text">온라인 양식 또는 전화로 간단히 신청하세요. 24시간 접수 가능합니다.</p>
+    </div>
+    <div class="process-step fade-up">
+      <div class="step-number">02</div>
+      <div class="step-title">사건 검토</div>
+      <p class="step-text">담당 변호사가 관련 자료를 검토하고 사안을 면밀히 분석합니다.</p>
+    </div>
+    <div class="process-step fade-up">
+      <div class="step-number">03</div>
+      <div class="step-title">전략 수립</div>
+      <p class="step-text">의뢰인과 충분한 소통을 통해 최적의 법률 대응 전략을 수립합니다.</p>
+    </div>
+    <div class="process-step fade-up">
+      <div class="step-number">04</div>
+      <div class="step-title">사건 진행</div>
+      <p class="step-text">전 과정에서 진행 상황을 투명하게 공유하며 최선의 결과를 추구합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-tag">의뢰인 후기</div>
+  <h2 class="section-title">신뢰가 만든 결과</h2>
+  <p class="section-desc">실제 의뢰인분들의 생생한 경험을 확인하세요.</p>
+
+  <div class="testimonial-grid">
+
+    <div class="testimonial-card fade-up">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">처음에는 막막하기만 했는데 담당 변호사님께서 처음부터 끝까지 친절하게 설명해주시고 적극적으로 대응해 주셨습니다. 덕분에 좋은 결과를 얻을 수 있었습니다.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">김○○</div>
+        <div>
+          <div class="author-name">김○○ 의뢰인</div>
+          <div class="author-case">민사소송 · 손해배상</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card fade-up">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">이혼 소송 과정에서 감정적으로 많이 힘들었는데, 법적 절차뿐 아니라 심리적으로도 많이 의지가 되었습니다. 아이 양육권도 원하는 방향으로 해결되었습니다.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">박○○</div>
+        <div>
+          <div class="author-name">박○○ 의뢰인</div>
+          <div class="author-case">가사소송 · 이혼 및 양육권</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card fade-up">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">부동산 사기 피해를 당해 절망적이었는데, 신속한 가압류 조치와 체계적인 소송 전략으로 피해액 대부분을 회수할 수 있었습니다. 진심으로 감사드립니다.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">이○○</div>
+        <div>
+          <div class="author-name">이○○ 의뢰인</div>
+          <div class="author-case">부동산 사기 · 민사소송</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card fade-up">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">스타트업 창업 초기부터 계약서 검토, 투자 계약, 노무 자문까지 원스톱으로 해결해 주셨습니다. 기업법무 파트너로 앞으로도 함께할 예정입니다.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">최○○</div>
+        <div>
+          <div class="author-name">최○○ 대표</div>
+          <div class="author-case">기업법무 · 스타트업 자문</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div>
+    <div class="section-tag">연락처</div>
+    <h2 class="section-title">지금 바로<br />무료 상담을 받으세요</h2>
+    <p style="font-size:15px; color:rgba(255,255,255,0.55); line-height:1.8; margin-bottom:8px;">
+      법률 문제는 빠른 대응이 중요합니다.<br />
+      망설이지 마시고 지금 연락주세요.
+    </p>
+    <ul class="contact-info-list">
+      <li class="contact-item">
+        <div class="contact-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.81 19.79 19.79 0 01.07 2.18 2 2 0 012.05.07h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-label">전화 상담</div>
+          <div class="contact-value">02-1234-5678</div>
+        </div>
+      </li>
+      <li class="contact-item">
+        <div class="contact-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-label">이메일</div>
+          <div class="contact-value">info@lawjeongseok.kr</div>
+        </div>
+      </li>
+      <li class="contact-item">
+        <div class="contact-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-label">주소</div>
+          <div class="contact-value">서울특별시 서초구 서초대로 396<br />법무법인 정석 빌딩 8층</div>
+        </div>
+      </li>
+      <li class="contact-item">
+        <div class="contact-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-label">상담 시간</div>
+          <div class="contact-value">평일 09:00 – 18:00<br />토요일 09:00 – 13:00</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="contact-form">
+    <h3 class="form-title">온라인 상담 신청</h3>
+    <div class="form-group">
+      <label>성함</label>
+      <input type="text" placeholder="홍길동" />
+    </div>
+    <div class="form-group">
+      <label>연락처</label>
+      <input type="tel" placeholder="010-0000-0000" />
+    </div>
+    <div class="form-group">
+      <label>상담 분야</label>
+      <select>
+        <option value="">선택해주세요</option>
+        <option>민사소송</option>
+        <option>형사변호</option>
+        <option>가사 · 이혼</option>
+        <option>기업법무</option>
+        <option>부동산 · 건설</option>
+        <option>행정 · 헌법</option>
+        <option>기타</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>상담 내용</label>
+      <textarea placeholder="사건 내용을 간략히 적어주세요. 모든 내용은 비밀이 보장됩니다."></textarea>
+    </div>
+    <button class="form-submit" onclick="alert('상담 신청이 접수되었습니다.\n담당 변호사가 1영업일 이내 연락드리겠습니다.')">무료 상담 신청하기</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">법무법인 <span>정석</span></div>
+      <p class="footer-brand-sub">원칙을 지키고 신뢰를 쌓는 법률 전문가 집단.<br />당신의 권리를 위해 최선을 다합니다.</p>
+    </div>
+    <div class="footer-links-group">
+      <div>
+        <div class="footer-col-title">업무분야</div>
+        <ul class="footer-col-links">
+          <li><a href="#">민사소송</a></li>
+          <li><a href="#">형사변호</a></li>
+          <li><a href="#">가사 · 이혼</a></li>
+          <li><a href="#">기업법무</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">법인 안내</div>
+        <ul class="footer-col-links">
+          <li><a href="#">법인 소개</a></li>
+          <li><a href="#">변호사 소개</a></li>
+          <li><a href="#">상담 절차</a></li>
+          <li><a href="#">오시는 길</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2024 법무법인 정석. All rights reserved.</p>
+    <p class="footer-disclaimer">이 웹사이트의 정보는 일반적인 법률 정보 제공을 목적으로 하며, 법률 자문에 해당하지 않습니다. 구체적인 법률 문제는 반드시 전문가와 상담하시기 바랍니다.</p>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80 * (Array.from(entry.target.parentElement?.children || []).indexOf(entry.target)));
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
